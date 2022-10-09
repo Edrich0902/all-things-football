@@ -9,6 +9,7 @@
 		NavLi,
 		NavUl
 	} from 'flowbite-svelte';
+    import { page } from '$app/stores';
 
 	var btnClass: string =
 		`text-gray-500
@@ -43,9 +44,9 @@
             <NavHamburger on:click={toggle} />
 		</div>
 		<NavUl {hidden}>
-			<NavLi href="/" active={true}>Home</NavLi>
-			<NavLi href="/about">About</NavLi>
-			<NavLi href="/services">Services</NavLi>
+			<NavLi href="/" active={$page.routeId === ''}>Home</NavLi>
+			<NavLi href="/leagues" active={$page.routeId === 'leagues'}>Leagues</NavLi>
+			<NavLi href="/teams" active={$page.routeId === 'teams'}>Teams</NavLi>
 		</NavUl>
 	</Navbar>
 </div>

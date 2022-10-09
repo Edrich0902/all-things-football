@@ -9,7 +9,7 @@
 		NavLi,
 		NavUl
 	} from 'flowbite-svelte';
-    
+
 	var btnClass: string =
 		`text-gray-500
         dark:text-gray-400 
@@ -36,7 +36,7 @@
 				alt="Flowbite Logo"
 			/>
 			<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-				Flowbite
+				All Things Football
 			</span>
 		</NavBrand>
 		<div class="flex md:order-2">

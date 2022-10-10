@@ -66,12 +66,11 @@ export interface Match {
     awayTeam: Team;
     score: MatchScore;
     goals: MatchGoal[];
-    penalties: MatchPenalties[];
-    bookings: MatchBookings[];
+    penalties: MatchPenalty[];
+    bookings: MatchBooking[];
     substitutions: MatchSub[];
     odds: MatchOdds;
     referees: MatchReferee[];
-    //TODO: implement last types
 }
 
 export interface Team {
@@ -116,6 +115,102 @@ export interface TeamStats {
     yellowCards: number;
     yellowRedCards: number;
     redCards: number;
+}
+
+export interface MatchScore {
+    winner: MatchWinner;
+    duration: MatchDuration;
+    fullTime: InstanceScore;
+    halfTime: InstanceScore;
+}
+
+export interface InstanceScore {
+    home: number;
+    away: number;
+}
+
+export interface MatchGoal {
+    minute: number;
+    injuryTime: boolean;
+    type: GoalType;
+    team: GoalTeam;
+    scorer: GoalPlayer;
+    assist: GoalPlayer;
+    score: InstanceScore;
+}
+
+export interface GoalTeam {
+    id: number;
+    name: string;
+}
+
+export interface GoalPlayer {
+    id: number;
+    name: string;
+}
+
+export interface MatchPenalty {
+    player: GoalPlayer;
+    team: GoalTeam;
+    scored: boolean;
+}
+
+export interface MatchBooking {
+    minute: number;
+    team: GoalTeam;
+    player: GoalPlayer;
+    card: BookingType;
+}
+
+export interface MatchSub {
+    minute: number;
+    team: GoalTeam;
+    playerOut: GoalPlayer;
+    playerIn: GoalPlayer;
+}
+
+export interface MatchOdds {
+    homeWin: number;
+    draw: number;
+    awayWin: number;
+}
+
+export interface MatchReferee {
+    id: number;
+    name: string;
+    type: RefereeType;
+    nationality: string;
+}
+
+export enum RefereeType {
+    ASSISTANT_REFEREE_N1 = 'ASSISTANT_REFEREE_N1',
+    ASSISTANT_REFEREE_N2 = 'ASSISTANT_REFEREE_N2',
+    FOURTH_OFFICIAL = 'FOURTH_OFFICIAL',
+    REFEREE = 'REFEREE',
+    VIDEO_ASSISTANT_REFEREE_N1 = 'VIDEO_ASSISTANT_REFEREE_N1',
+    VIDEO_ASSISTANT_REFEREE_N2 = 'VIDEO_ASSISTANT_REFEREE_N2',
+}
+
+export enum BookingType {
+    YELLOW = 'YELLOW',
+    RED = 'RED',
+}
+
+export enum GoalType {
+    PENALTY = 'PENALTY',
+    REGULAR = 'REGULAR',
+}
+
+export enum MatchWinner {
+    DRAW = 'DRAW',
+    HOME = 'HOME',
+    AWAY = 'AWAY',
+}
+
+export enum MatchDuration {
+    REGULAR = 'REGULAR',
+    EXTRA_TIME = 'EXTRA_TIME',
+    PENALTIES = 'PENALTIES',
 }
 
 export enum MatchStatus {

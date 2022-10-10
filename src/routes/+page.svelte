@@ -1,9 +1,12 @@
 <script lang='ts'>
+    import MatchContainer from '../components/matchContainer.svelte';
 </script>
 
 <svelte:head>
     <title>All Things Football</title>
 </svelte:head>
 <div>
-    <h1>Home page content here</h1>
+    <MatchContainer prop={{title: "Live", matches: []}} />
+    <MatchContainer prop={{title: "Upcoming", matches: []}} />
+    <MatchContainer prop={{title: "Finished", matches: []}} />
 </div>

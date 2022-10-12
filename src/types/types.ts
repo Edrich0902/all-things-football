@@ -239,3 +239,24 @@ export enum Group {
     GROUP_K = 'GROUP_K',
     GROUP_L = 'GROUP_L',
 }
+
+export interface HttpResponse<T> {
+    filters: HttpFilter;
+    resultSet: HttpResultSet;
+    matches: T[];
+}
+
+export interface HttpFilter {
+    dateFrom: string;
+    dateTo: string;
+    permission: string;
+    status: string[];
+}
+
+export interface HttpResultSet {
+    count: number;
+    competitions: string;
+    first: string;
+    last: string;
+    played: number;
+}

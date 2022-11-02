@@ -3,12 +3,12 @@ import axios from 'axios';
 import { MatchStatus, type HttpResponse, type Match } from '../types/types';
 import { writable } from 'svelte/store';
 
-export const liveMatches = writable<Match[]>([])
+export const upcomingMatches = writable<Match[]>([]);
 
-const loadLiveMatches = async () => {
+const loadUpcomingMatches = async () => {
     const res = await axios.get<HttpResponse<Match>>(PUBLIC_API_URL, {
         params: {
-            url: `${PUBLIC_BASE_URL}/matches/?status=${MatchStatus.IN_PLAY}`
+            url: `${PUBLIC_BASE_URL}/matches/?status=${MatchStatus.SCHEDULED}`
         },
         headers: {
             'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ const loadLiveMatches = async () => {
         responseType: 'json',
     });
 
-    liveMatches.set(res.data.matches);
-}
+    upcomingMatches.set(res.data.matches);
+};
 
-loadLiveMatches();
+loadUpcomingMatches();

@@ -31,7 +31,7 @@ export enum SeasonStage {
     LAST_32 = 'LAST_32',
     LAST_64 = 'LAST_64',
     ROUND_4 = 'ROUND_4',
-    ROUND_3 = 'ROUND_3',   
+    ROUND_3 = 'ROUND_3',
     ROUND_2 = 'ROUND_2',
     ROUND_1 = 'ROUND_1',
     GROUP_STAGE = 'GROUP_STAGE',
@@ -71,6 +71,7 @@ export interface Match {
     substitutions: MatchSub[];
     odds: MatchOdds;
     referees: MatchReferee[];
+    competition: Competition;
 }
 
 export interface Team {
@@ -214,14 +215,14 @@ export enum MatchDuration {
 }
 
 export enum MatchStatus {
-    SCHEDULED = 'SCHEDULED', 
+    SCHEDULED = 'SCHEDULED',
     TIMED = 'TIMED',
-    IN_PLAY = 'IN_PLAY', 
-    PAUSED = 'PAUSED', 
-    FINISHED = 'FINISHED', 
-    SUSPENDED = 'SUSPENDED', 
-    POSTPONED = 'POSTPONED', 
-    CANCELLED = 'CANCELLED', 
+    IN_PLAY = 'IN_PLAY',
+    PAUSED = 'PAUSED',
+    FINISHED = 'FINISHED',
+    SUSPENDED = 'SUSPENDED',
+    POSTPONED = 'POSTPONED',
+    CANCELLED = 'CANCELLED',
     AWARDED = 'AWARDED',
 }
 

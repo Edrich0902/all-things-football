@@ -3,7 +3,7 @@ import axios from 'axios';
 import { MatchStatus, type HttpResponse, type Match } from '../types/types';
 import { writable } from 'svelte/store';
 
-export const upcomingMatches = writable<Match[]>([]);
+export const upcomingMatches = writable<Match[]>(undefined);
 
 const loadUpcomingMatches = async () => {
     const res = await axios.get<HttpResponse<Match>>(PUBLIC_API_URL, {

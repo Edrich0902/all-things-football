@@ -10,7 +10,7 @@ export interface Competition {
     name: string;
     code: string;
     type: string;
-    emblems: string;
+    emblem: string;
 }
 
 export interface Season {
@@ -244,7 +244,19 @@ export enum Group {
 export interface HttpResponse<T> {
     filters: HttpFilter;
     resultSet: HttpResultSet;
+    dataset: T[];
+}
+
+export interface HttpMatchResponse<T> {
+    filters: HttpFilter;
+    resultSet: HttpResultSet;
     matches: T[];
+}
+
+export interface HttpCompetitionResponse<T> {
+    filters: HttpFilter;
+    resultSet: HttpResultSet;
+    competitions: T[];
 }
 
 export interface HttpFilter {

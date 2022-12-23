@@ -5,12 +5,61 @@ export interface Area {
     flag: string;
 }
 
+export enum CompetitionType {
+    CUP = 'CUP',
+    LEAGUE = 'LEAGUE',
+}
+
 export interface Competition {
     id: number | string;
     name: string;
     code: string;
     type: string;
     emblem: string;
+    currentSeason?: Season;
+    seasons?: Season[];
+    area?: Area;
+}
+
+export interface CompetitionStandings {
+    season: Season;
+    area: Area;
+    competition: Competition;
+    standings: Standing[];
+}
+
+export interface Standing {
+    stage: SeasonStage;
+    group: Group;
+    type: StandingType,
+    table: StandingPosition[];
+}
+
+export interface StandingPosition {
+    draw: number;
+    form: string;
+    goalDifference: number;
+    goalsAgainst: number;
+    goalsFor: number;
+    lost: number;
+    playedGames: number;
+    points: number;
+    position: number;
+    team: Team;
+    won: number;
+}
+
+export interface CompetitionScorers {
+    competition: Competition;
+    scorers: CompetitionScorer[];
+}
+
+export interface CompetitionScorer {
+    assists: number;
+    goals: number;
+    penalties: number;
+    player: Player;
+    team: Team;
 }
 
 export interface Season {
@@ -93,6 +142,10 @@ export interface Player {
     name: string;
     position: string;
     shirtNumber: number;
+    dateOfBirth: string;
+    firstName: string;
+    lastName: string;
+    nationality: string;
 }
 
 export interface Coach {
@@ -239,6 +292,12 @@ export enum Group {
     GROUP_J = 'GROUP_J',
     GROUP_K = 'GROUP_K',
     GROUP_L = 'GROUP_L',
+}
+
+export enum StandingType {
+    TOTAL = 'TOTAL',
+    HOME = 'HOME',
+    AWAY = 'AWAY',
 }
 
 export interface HttpResponse<T> {

@@ -13,16 +13,13 @@
 
 	var btnClass: string =
 		`text-gray-500
-        dark:text-gray-400 
-        hover:bg-gray-100 
-        dark:hover:bg-gray-700 
-        focus:outline-none 
-        focus:ring-4 
-        focus:ring-gray-200 
-        dark:focus:ring-gray-700 
-        rounded-lg 
-        text-sm 
-        p-2.5 
+        dark:text-gray-400
+        hover:bg-gray-100
+        dark:hover:bg-gray-600
+        focus:outline-none
+        rounded-lg
+        text-sm
+        p-2.5
         z-50`;
 
 </script>
@@ -46,7 +43,8 @@
 		<NavUl {hidden}>
 			<NavLi href="/" active={$page.routeId === ''}>Home</NavLi>
 			<NavLi href="/leagues" active={$page.routeId === 'leagues'}>Leagues</NavLi>
-			<NavLi href="/teams" active={$page.routeId === 'teams'}>Teams</NavLi>
+			<NavLi href="/dashboard" active={$page.routeId === 'dashboard'}>Dashboard</NavLi>
+			<!-- <NavLi href="/teams" active={$page.routeId === 'teams'}>Teams</NavLi> -->
 		</NavUl>
 	</Navbar>
 </div>

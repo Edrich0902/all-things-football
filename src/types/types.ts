@@ -121,6 +121,7 @@ export interface Match {
     odds: MatchOdds;
     referees: MatchReferee[];
     competition: Competition;
+    area: Area;
 }
 
 export interface Team {
@@ -146,6 +147,12 @@ export interface Player {
     firstName: string;
     lastName: string;
     nationality: string;
+    currentTeam?: Team;
+}
+
+export interface PlayerMatches {
+    matches: Match[];
+    person: Player;
 }
 
 export interface Coach {
@@ -257,8 +264,8 @@ export enum GoalType {
 
 export enum MatchWinner {
     DRAW = 'DRAW',
-    HOME = 'HOME',
-    AWAY = 'AWAY',
+    HOME = 'HOME_TEAM',
+    AWAY = 'AWAY_TEAM',
 }
 
 export enum MatchDuration {

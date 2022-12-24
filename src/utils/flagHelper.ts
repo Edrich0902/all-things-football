@@ -1,0 +1,1 @@
+export const flagString = (country: string) => `https://countryflagsapi.com/png/${country.toLowerCase()}`;

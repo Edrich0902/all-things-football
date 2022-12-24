@@ -20,6 +20,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>All Things Football - League</title>
+</svelte:head>
+
 {#if $competition}
 	<CompetitionDetail competition={$competition} />
 	<div class="sm:block xl:flex justify-between items-center">

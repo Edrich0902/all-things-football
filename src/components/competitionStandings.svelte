@@ -106,7 +106,7 @@
         </div>
     </div>
 {:else}
-    <div>
+    <div class="self-start text-center mx-auto">
         <Spinner></Spinner>
     </div>
 {/if}

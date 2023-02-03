@@ -1,15 +1,23 @@
 <script lang='ts'>
+	import { MatchStatus } from '../types/types';
+	import { filterMatchByStatus } from '../utils/matchFilter';
     import MatchContainer from '../components/matchContainer.svelte';
-    import { liveMatches } from '../stores/liveMatchStore';
-    import { finishedMatches } from '../stores/finishedMatchStore';
-    import { upcomingMatches } from '../stores/upcomingMatchStore';
+    import { matches } from '../stores/matchesStore';
+	import { loadingState } from '../stores/globalLoadingState';
+	import { Spinner } from 'flowbite-svelte';
 </script>
 
 <svelte:head>
     <title>All Things Football</title>
 </svelte:head>
-<div>
-    <MatchContainer prop={{title: "Live", matches: $liveMatches}} />
-    <MatchContainer prop={{title: "Upcoming", matches: $upcomingMatches}} />
-    <MatchContainer prop={{title: "Finished", matches: $finishedMatches}} />
-</div>
+{#if $loadingState}
+    <div class="flex items-center justify-center">
+        <Spinner />
+    </div>
+{:else}
+    <div>
+        <MatchContainer prop={{title: "Live", matches: filterMatchByStatus([MatchStatus.IN_PLAY, MatchStatus.PAUSED], $matches)}} />
+        <MatchContainer prop={{title: "Upcoming", matches: filterMatchByStatus([MatchStatus.TIMED, MatchStatus.SCHEDULED], $matches)}} />
+        <MatchContainer prop={{title: "Finished", matches: filterMatchByStatus([MatchStatus.FINISHED], $matches)}} />
+    </div>
+{/if}

@@ -4,7 +4,8 @@
     import { page } from "$app/stores";
 	import PlayerDetail from "../../../components/playerDetail.svelte";
 	import PlayerMatches from "../../../components/playerMatches.svelte";
-
+	import { loadingState } from "../../../stores/globalLoadingState";
+	import { Spinner } from "flowbite-svelte";
 
     onMount(async () => {
         playerDetail.set(await getPlayer($page.params.slug));
@@ -16,7 +17,13 @@
     <title>All Things Football - Player</title>
 </svelte:head>
 
-<div>
-    <PlayerDetail player={$playerDetail} />
-    <PlayerMatches data={$playerMatches} />
-</div>
+{#if $loadingState}
+    <div class="flex items-center justify-center">
+        <Spinner />
+    </div>
+{:else}
+    <div>
+        <PlayerDetail player={$playerDetail} />
+        <PlayerMatches data={$playerMatches} />
+    </div>
+{/if}

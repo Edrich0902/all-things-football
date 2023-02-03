@@ -13,6 +13,7 @@
 	import CompetitionDetail from '../../../components/competitionDetail.svelte';
 	import CompetitionStandings from '../../../components/competitionStandings.svelte';
 	import CompetitionTopScorers from '../../../components/competitionTopScorers.svelte';
+	import { loadingState } from '../../../stores/globalLoadingState';
 	onMount(async () => {
 		competition.set(await getCompetition($page.params.slug));
 		competitionStandings.set(await getCompetitionStandings($competition?.code ?? ''));
@@ -24,7 +25,11 @@
 	<title>All Things Football - League</title>
 </svelte:head>
 
-{#if $competition}
+{#if $loadingState}
+	<div class="flex items-center justify-center">
+		<Spinner />
+	</div>
+{:else if $competition}
 	<CompetitionDetail competition={$competition} />
 	<div class="sm:block xl:flex justify-between items-center">
 		<CompetitionStandings
@@ -36,9 +41,5 @@
             data={$competitionScorers}
             style="xl:w-2/5 xl:self-start sm:w-full"
         />
-	</div>
-{:else}
-	<div class="flex items-center justify-center">
-		<Spinner />
 	</div>
 {/if}

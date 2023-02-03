@@ -2,13 +2,18 @@
 	import { Spinner } from "flowbite-svelte";
 	import Competition from "../../components/competition.svelte";
     import { competitions } from "../../stores/competitionStore";
+    import { loadingState } from "../../stores/globalLoadingState";
 </script>
 
 <svelte:head>
     <title>All Things Football - Leagues</title>
 </svelte:head>
 
-{#if $competitions?.length > 0}
+{#if $loadingState}
+    <div class="flex items-center justify-center">
+        <Spinner></Spinner>
+    </div>
+{:else if $competitions?.length > 0}
     <div class="leagues-grid gap-x-4 gap-y-4 justify-center">
         {#each $competitions as competition}
             <Competition competition={competition} />
@@ -16,10 +21,6 @@
     </div>
 {:else if $competitions?.length === 0}
     <span>No Leagues</span>
-{:else}
-    <div class="flex items-center justify-center">
-        <Spinner></Spinner>
-    </div>
 {/if}
 
 <style>

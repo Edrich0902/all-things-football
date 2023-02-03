@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Badge, Img, P, Span, Spinner, Tooltip } from 'flowbite-svelte';
+	import { loadingState } from '../stores/globalLoadingState';
 	import type { Player } from 'src/types/types';
 	import { flagString } from '../utils/flagHelper';
 
@@ -14,7 +15,11 @@
 </script>
 
 <div class={containerClass}>
-	{#if player}
+	{#if $loadingState}
+		<div class="flex items-center justify-center">
+			<Spinner />
+		</div>
+	{:else if player}
 		<div class="flex items-center justify-between">
             <div class="flex">
                 <img src={player.currentTeam?.crest} alt="" class="h-20 w-20 mr-2" />
@@ -38,10 +43,6 @@
 				/>
 				<Tooltip triggeredBy="[id^='flag']">{player.nationality}</Tooltip>
             </div>
-		</div>
-	{:else}
-		<div class="flex items-center justify-center">
-			<Spinner />
 		</div>
 	{/if}
 </div>

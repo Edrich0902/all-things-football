@@ -8,12 +8,17 @@
 		TableHead,
 		TableHeadCell
 	} from 'flowbite-svelte';
+	import { loadingState } from '../stores/globalLoadingState';
 	import type { CompetitionScorers } from 'src/types/types';
 	export let data: CompetitionScorers;
 	export let style: string = '';
 </script>
 
-{#if data?.scorers}
+{#if $loadingState}
+	<div class="self-start text-center mx-auto">
+		<Spinner />
+	</div>
+{:else if data?.scorers}
 	<div class={`${style} dark:bg-gray-700 bg-gray-50 p-4 rounded-lg mb-2`}>
 		<span class="text-lg font-semibold">Top Scorers</span>
 		<Table striped={true} hoverable={true}>
@@ -40,9 +45,5 @@
 				{/each}
 			</TableBody>
 		</Table>
-	</div>
-{:else}
-	<div class="self-start text-center mx-auto">
-		<Spinner />
 	</div>
 {/if}

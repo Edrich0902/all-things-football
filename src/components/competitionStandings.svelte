@@ -8,6 +8,7 @@
 		TableHead,
 		TableHeadCell
 	} from 'flowbite-svelte';
+	import { loadingState } from '../stores/globalLoadingState';
 	import { CompetitionType, type CompetitionScorers, type CompetitionStandings } from '../types/types';
 
 	//Props
@@ -25,7 +26,11 @@
     const groupFormatter = (group: string): string => group?.split("_").join(" ") ?? "";
 </script>
 
-{#if data?.standings}
+{#if $loadingState}
+    <div class="self-start text-center mx-auto">
+        <Spinner></Spinner>
+    </div>
+{:else if data?.standings}
     <div class={`${style} ${componentStyle}`}>
         <span class="text-lg font-semibold">Standings</span>
         <div>
@@ -104,10 +109,6 @@
                 </Table>
             {/if}
         </div>
-    </div>
-{:else}
-    <div class="self-start text-center mx-auto">
-        <Spinner></Spinner>
     </div>
 {/if}
 

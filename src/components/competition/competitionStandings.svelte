@@ -37,7 +37,7 @@
                 {#each data?.standings as group (group)}
                     <div class="p-4">
                         <span class="text-base font-medium mt-3 mb-3">{groupFormatter(group.group)}</span>
-                        <Table striped={true}>
+                        <Table striped={true} hoverable={true}>
                             <TableHead>
                                 <TableHeadCell>Pos</TableHeadCell>
                                 <TableHeadCell>Team</TableHeadCell>
@@ -51,13 +51,13 @@
                             </TableHead>
                             <TableBody class="divide-y">
                                 {#each group.table as position (position)}
-                                    <TableBodyRow>
+                                    <TableBodyRow trClass="cursor-pointer">
                                         <TableBodyCell>{position.position}</TableBodyCell>
                                         <TableBodyCell>
-                                            <span class="flex">
+                                            <a href={`/team/${position.team.id}`} class="hover:text-blue-400 flex items-center">
                                                 <img src={position.team.crest} alt="" class="h-6 w-6 mr-2">
                                                 <span>{position.team.name}</span>
-                                            </span>
+                                            </a>
                                         </TableBodyCell>
                                         <TableBodyCell>{position.playedGames}</TableBodyCell>
                                         <TableBodyCell>{position.won}</TableBodyCell>
@@ -73,7 +73,7 @@
                     </div>
                 {/each}
             {:else}
-                <Table striped={true}>
+                <Table striped={true} hoverable={true}>
                     <TableHead>
                         <TableHeadCell>Pos</TableHeadCell>
                         <TableHeadCell>Team</TableHeadCell>
@@ -87,13 +87,13 @@
                     </TableHead>
                     <TableBody class="divide-y">
                         {#each data?.standings[0].table as position (position)}
-                            <TableBodyRow>
+                            <TableBodyRow trClass="cursor-pointer">
                                 <TableBodyCell>{position.position}</TableBodyCell>
                                 <TableBodyCell>
-                                    <span class="flex">
+                                    <a href={`/team/${position.team.id}`} class="hover:text-blue-400 flex items-center">
                                         <img src={position.team.crest} alt="" class="h-6 w-6 mr-2">
                                         <span>{position.team.name}</span>
-                                    </span>
+                                    </a>
                                 </TableBodyCell>
                                 <TableBodyCell>{position.playedGames}</TableBodyCell>
                                 <TableBodyCell>{position.won}</TableBodyCell>

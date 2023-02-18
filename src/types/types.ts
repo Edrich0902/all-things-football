@@ -133,9 +133,33 @@ export interface Team {
     coach: Coach;
     leagueRank: number;
     formation: string;
-    linueup: Player[];
+    linueup: Player[]; //TODO: check if this is deprecated
+    squad: Player[];
     bench: Player[];
     statistics: TeamStats;
+    venue?: string;
+    website?: string;
+    clubColors?: string;
+    area?: Area;
+    address?: string;
+    founded?: string;
+    runningCompetitions?: Competition[];
+}
+
+export interface TeamMatches {
+    matches: Match[];
+    resultSet: TeamMatchesResultSet;
+}
+
+export interface TeamMatchesResultSet {
+    competitions: string;
+    count: number;
+    draws: number;
+    first: string;
+    last: string;
+    losses: number;
+    played: number;
+    wins: number;
 }
 
 export interface Player {

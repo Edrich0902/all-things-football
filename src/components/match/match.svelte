@@ -35,11 +35,13 @@
     </div>
     <div class='grid grid-cols-3 mt-1 mb-1'>
         <div class='flex flex-row justify-start items-center'>
-            <img
-                class='w-8 h-8 rounded-full mr-4'
-                src={prop.homeTeam.crest}
-                alt='Team Logo'/>
-            <span>{prop.homeTeam.name}</span>
+            <a href={`/team/${prop.homeTeam.id}`} class="hover:text-blue-400 flex items-center">
+                <img
+                    class='w-8 h-8 rounded-full mr-4'
+                    src={prop.homeTeam.crest}
+                    alt='Team Logo'/>
+                <span>{prop.homeTeam.name}</span>
+            </a>
         </div>
 
         <div class='flex flex-row items-center justify-center'>
@@ -51,11 +53,13 @@
         </div>
 
         <div class='flex flex-row justify-end items-center'>
-            <span>{prop.awayTeam.name}</span>
-            <img
-                class='w-8 h-8 rounded-full ml-4'
-                src={prop.awayTeam.crest}
-                alt='Team Logo'/>
+            <a href={`/team/${prop.awayTeam.id}`} class="hover:text-blue-400 flex items-center">
+                <span>{prop.awayTeam.name}</span>
+                <img
+                    class='w-8 h-8 rounded-full ml-4'
+                    src={prop.awayTeam.crest}
+                    alt='Team Logo'/>
+            </a>
         </div>
     </div>
     <div class='flex flex-row justify-center dark:text-gray-700'>

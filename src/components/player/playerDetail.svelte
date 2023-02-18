@@ -3,6 +3,7 @@
 	import { loadingState } from '../../stores/globalLoadingState';
 	import type { Player } from 'src/types/types';
 	import { flagString } from '../../utils/flagHelper';
+	import { getAgeFromDate } from '../../utils/dateFormatter';
 
 	export let player: Player;
 	let containerClass: string = `
@@ -29,7 +30,7 @@
                         <P opacity={1} space="wide" size="xl">{player.name}</P>
                     </div>
                     <P opacity={1} space="wide" size="sm">{player.position}</P>
-                    <P opacity={1} space="wide" size="xs">{player.dateOfBirth}</P>
+                    <P opacity={1} space="wide" size="xs">Age: {getAgeFromDate(player.dateOfBirth)}</P>
                     <!-- TODO: get player age in years -->
                 </div>
             </div>

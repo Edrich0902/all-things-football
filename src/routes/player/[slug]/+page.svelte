@@ -1,16 +1,9 @@
 <script lang="ts">
-	import { getPlayer, getPlayerMatches, playerDetail, playerMatches } from "../../../stores/player/singlePlayerStore";
-	import { onMount } from "svelte";
-    import { page } from "$app/stores";
 	import PlayerDetail from "../../../components/player/playerDetail.svelte";
 	import PlayerMatches from "../../../components/player/playerMatches.svelte";
 	import { loadingState } from "../../../stores/globalLoadingState";
+    import { playerDetail, playerMatches } from "../../../stores/player/singlePlayerStore";
 	import { Spinner } from "flowbite-svelte";
-
-    onMount(async () => {
-        playerDetail.set(await getPlayer($page.params.slug));
-        playerMatches.set(await getPlayerMatches($page.params.slug));
-    });
 </script>
 
 <svelte:head>

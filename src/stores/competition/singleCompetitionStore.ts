@@ -19,6 +19,7 @@ export const getCompetition = async (id: string) => {
     })
 
     loadingState.set(false);
+    competition.set(res.data);
     return res.data;
 }
 
@@ -33,6 +34,7 @@ export const getCompetitionStandings = async (code: string) => {
     });
 
     loadingState.set(false);
+    competitionStandings.set(res.data);
     return res.data;
 };
 
@@ -47,5 +49,6 @@ export const getCompetitionScorers = async (code: string) => {
     });
 
     loadingState.set(false);
+    competitionScorers.set(res.data)
     return res.data;
 };

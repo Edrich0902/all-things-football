@@ -18,6 +18,7 @@ export const getPlayer = async (id: string) => {
     });
 
     loadingState.set(false);
+    playerDetail.set(res.data);
     return res.data;
 };
 
@@ -32,5 +33,6 @@ export const getPlayerMatches = async (id: string) => {
     });
 
     loadingState.set(false);
+    playerMatches.set(res.data);
     return res.data;
 }

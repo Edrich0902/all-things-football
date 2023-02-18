@@ -19,6 +19,7 @@ export const getTeam = async (id: string) => {
     });
 
     loadingState.set(false);
+    teamDetail.set(res.data);
     return res.data;
 };
 
@@ -33,5 +34,6 @@ export const getTeamMatches = async (id: string, season: string = getCurrentSeas
     });
 
     loadingState.set(false);
+    teamMatches.set(res.data);
     return res.data;
 };

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { P, Spinner, Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from "flowbite-svelte";
+	import GlobalSpinner from "../../views/spinner/globalSpinner.svelte";
 	import { loadingState } from "../../stores/globalLoadingState";
 	import { MatchWinner, type Match, type PlayerMatches, type Team } from "../../types/types";
 
@@ -21,9 +22,7 @@
 
 <div class={containerClass}>
     {#if $loadingState}
-        <div class="flex items-center justify-center">
-            <Spinner></Spinner>
-        </div>
+        <GlobalSpinner />
     {:else if data}
         <P space="wide" opacity={1} size="base">Last {data.matches.length} Matches</P>
         <Table striped={true}>

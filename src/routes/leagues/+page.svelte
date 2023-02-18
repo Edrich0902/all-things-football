@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import { Spinner } from "flowbite-svelte";
+	import GlobalSpinner from "../../views/spinner/globalSpinner.svelte";
 	import Competition from "../../components/competition/competition.svelte";
     import { competitions } from "../../stores/competition/competitionStore";
     import { loadingState } from "../../stores/globalLoadingState";
@@ -10,9 +10,7 @@
 </svelte:head>
 
 {#if $loadingState}
-    <div class="flex items-center justify-center">
-        <Spinner></Spinner>
-    </div>
+    <GlobalSpinner />
 {:else if $competitions?.length > 0}
     <div class="leagues-grid gap-x-4 gap-y-4 justify-center">
         {#each $competitions as competition}

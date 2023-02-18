@@ -8,6 +8,7 @@
 		TableHead,
 		TableHeadCell
 	} from 'flowbite-svelte';
+	import GlobalSpinner from '../../views/spinner/globalSpinner.svelte';
 	import { loadingState } from '../../stores/globalLoadingState';
 	import { CompetitionType, type CompetitionScorers, type CompetitionStandings } from '../../types/types';
 
@@ -27,9 +28,7 @@
 </script>
 
 {#if $loadingState}
-    <div class="self-start text-center mx-auto">
-        <Spinner></Spinner>
-    </div>
+    <GlobalSpinner />
 {:else if data?.standings}
     <div class={`${style} ${componentStyle}`}>
         <span class="text-lg font-semibold">Standings</span>

@@ -3,6 +3,7 @@
     import { Spinner } from 'flowbite-svelte';
 	import Match from "./match.svelte";
 	import { loadingState } from "../../stores/globalLoadingState";
+	import GlobalSpinner from "../../views/spinner/globalSpinner.svelte";
     export let prop: MatchContainer;
 </script>
 
@@ -11,7 +12,7 @@
     <span class='text-lg font-medium mb-2'>{prop.title}</span>
     <div class="matches-wrapper w-full flex flex-col justify-center items-center">
         {#if $loadingState}
-            <Spinner></Spinner>
+            <GlobalSpinner />
         {:else if prop?.matches?.length > 0}
             {#each prop.matches as match}
                 <Match prop={match} />

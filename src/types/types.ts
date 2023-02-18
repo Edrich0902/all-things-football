@@ -162,6 +162,15 @@ export interface TeamMatchesResultSet {
     wins: number;
 }
 
+export interface MatchesResultSet {
+    matches: Match[];
+}
+
+export interface CompetitionResultsSet {
+    count: number;
+    competitions: Competition[];
+}
+
 export interface Player {
     id: string;
     name: string;

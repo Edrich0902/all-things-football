@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { Badge, Img, P, Span, Spinner, Tooltip } from 'flowbite-svelte';
+	import { Badge, Img, P, Tooltip } from 'flowbite-svelte';
 	import { loadingState } from '../../stores/globalLoadingState';
 	import type { Player } from 'src/types/types';
 	import { flagString } from '../../utils/flagHelper';
 	import { getAgeFromDate } from '../../utils/dateFormatter';
+	import GlobalSpinner from '../../views/spinner/globalSpinner.svelte';
 
 	export let player: Player;
 	let containerClass: string = `
@@ -17,9 +18,7 @@
 
 <div class={containerClass}>
 	{#if $loadingState}
-		<div class="flex items-center justify-center">
-			<Spinner />
-		</div>
+		<GlobalSpinner />
 	{:else if player}
 		<div class="flex items-center justify-between">
             <div class="flex">

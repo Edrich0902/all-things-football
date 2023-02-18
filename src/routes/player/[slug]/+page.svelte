@@ -3,7 +3,7 @@
 	import PlayerMatches from "../../../components/player/playerMatches.svelte";
 	import { loadingState } from "../../../stores/globalLoadingState";
     import { playerDetail, playerMatches } from "../../../stores/player/singlePlayerStore";
-	import { Spinner } from "flowbite-svelte";
+	import GlobalSpinner from "../../../views/spinner/globalSpinner.svelte";
 </script>
 
 <svelte:head>
@@ -11,9 +11,7 @@
 </svelte:head>
 
 {#if $loadingState}
-    <div class="flex items-center justify-center">
-        <Spinner />
-    </div>
+    <GlobalSpinner />
 {:else}
     <div>
         <PlayerDetail player={$playerDetail} />

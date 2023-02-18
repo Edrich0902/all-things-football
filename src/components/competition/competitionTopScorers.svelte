@@ -1,6 +1,5 @@
 <script lang="ts">
 	import {
-		Spinner,
 		Table,
 		TableBody,
 		TableBodyCell,
@@ -10,14 +9,13 @@
 	} from 'flowbite-svelte';
 	import { loadingState } from '../../stores/globalLoadingState';
 	import type { CompetitionScorers } from 'src/types/types';
+	import GlobalSpinner from '../../views/spinner/globalSpinner.svelte';
 	export let data: CompetitionScorers;
 	export let style: string = '';
 </script>
 
 {#if $loadingState}
-	<div class="self-start text-center mx-auto">
-		<Spinner />
-	</div>
+	<GlobalSpinner />
 {:else if data?.scorers}
 	<div class={`${style} dark:bg-gray-700 bg-gray-50 p-4 rounded-lg mb-2`}>
 		<span class="text-lg font-semibold">Top Scorers</span>

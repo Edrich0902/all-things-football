@@ -9,11 +9,11 @@
 	} from '../../../stores/competition/singleCompetitionStore';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { Spinner } from 'flowbite-svelte';
 	import CompetitionDetail from '../../../components/competition/competitionDetail.svelte';
 	import CompetitionStandings from '../../../components/competition/competitionStandings.svelte';
 	import CompetitionTopScorers from '../../../components/competition/competitionTopScorers.svelte';
 	import { loadingState } from '../../../stores/globalLoadingState';
+	import GlobalSpinner from '../../../views/spinner/globalSpinner.svelte';
 	onMount(async () => {
 		competition.set(await getCompetition($page.params.slug));
 		competitionStandings.set(await getCompetitionStandings($competition?.code ?? ''));
@@ -26,9 +26,7 @@
 </svelte:head>
 
 {#if $loadingState}
-	<div class="flex items-center justify-center">
-		<Spinner />
-	</div>
+	<GlobalSpinner />
 {:else if $competition}
 	<CompetitionDetail competition={$competition} />
 	<div class="sm:block xl:flex justify-between items-center">

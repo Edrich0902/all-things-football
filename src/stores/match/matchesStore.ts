@@ -1,6 +1,6 @@
-import type { HttpMatchResponse, Match } from "../types/types";
+import type { HttpMatchResponse, Match } from "../../types/types";
 import { writable } from "svelte/store";
-import { loadingState } from "./globalLoadingState";
+import { loadingState } from "../globalLoadingState";
 import axios from "axios";
 import { PUBLIC_API_URL, PUBLIC_BASE_URL } from "$env/static/public";
 

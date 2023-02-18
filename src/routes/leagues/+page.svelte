@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import { Spinner } from "flowbite-svelte";
-	import Competition from "../../components/competition.svelte";
-    import { competitions } from "../../stores/competitionStore";
+	import Competition from "../../components/competition/competition.svelte";
+    import { competitions } from "../../stores/competition/competitionStore";
     import { loadingState } from "../../stores/globalLoadingState";
 </script>
 

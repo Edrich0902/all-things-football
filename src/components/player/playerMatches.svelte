@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { P, Spinner, Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from "flowbite-svelte";
-	import { loadingState } from "../stores/globalLoadingState";
-	import { MatchWinner, type Match, type PlayerMatches, type Team } from "../types/types";
+	import { loadingState } from "../../stores/globalLoadingState";
+	import { MatchWinner, type Match, type PlayerMatches, type Team } from "../../types/types";
 
     export let data: PlayerMatches;
     let containerClass: string = `

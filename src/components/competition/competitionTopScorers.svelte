@@ -8,7 +8,7 @@
 		TableHead,
 		TableHeadCell
 	} from 'flowbite-svelte';
-	import { loadingState } from '../stores/globalLoadingState';
+	import { loadingState } from '../../stores/globalLoadingState';
 	import type { CompetitionScorers } from 'src/types/types';
 	export let data: CompetitionScorers;
 	export let style: string = '';

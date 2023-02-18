@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { getPlayer, getPlayerMatches, playerDetail, playerMatches } from "../../../stores/singlePlayerStore";
+	import { getPlayer, getPlayerMatches, playerDetail, playerMatches } from "../../../stores/player/singlePlayerStore";
 	import { onMount } from "svelte";
     import { page } from "$app/stores";
-	import PlayerDetail from "../../../components/playerDetail.svelte";
-	import PlayerMatches from "../../../components/playerMatches.svelte";
+	import PlayerDetail from "../../../components/player/playerDetail.svelte";
+	import PlayerMatches from "../../../components/player/playerMatches.svelte";
 	import { loadingState } from "../../../stores/globalLoadingState";
 	import { Spinner } from "flowbite-svelte";
 

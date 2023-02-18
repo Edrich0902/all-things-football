@@ -2,7 +2,7 @@ import { PUBLIC_API_URL, PUBLIC_BASE_URL } from "$env/static/public";
 import axios from "axios";
 import type { Player, PlayerMatches } from "src/types/types";
 import { writable } from "svelte/store";
-import { loadingState } from "./globalLoadingState";
+import { loadingState } from "../globalLoadingState";
 
 export const playerDetail = writable<Player>(undefined);
 export const playerMatches = writable<PlayerMatches>(undefined);

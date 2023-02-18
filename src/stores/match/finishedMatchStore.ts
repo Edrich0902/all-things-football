@@ -1,8 +1,8 @@
 import { PUBLIC_API_URL, PUBLIC_BASE_URL } from "$env/static/public";
 import axios from "axios";
-import { MatchStatus, type HttpMatchResponse, type Match } from "../types/types";
+import { MatchStatus, type HttpMatchResponse, type Match } from "../../types/types";
 import { writable } from "svelte/store";
-import { loadingState } from "./globalLoadingState";
+import { loadingState } from "../globalLoadingState";
 
 export const finishedMatches = writable<Match[]>(undefined);
 

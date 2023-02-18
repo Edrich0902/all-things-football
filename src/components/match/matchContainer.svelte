@@ -2,7 +2,7 @@
 	import type { MatchContainer } from "src/types/propTypes";
     import { Spinner } from 'flowbite-svelte';
 	import Match from "./match.svelte";
-	import { loadingState } from "../stores/globalLoadingState";
+	import { loadingState } from "../../stores/globalLoadingState";
     export let prop: MatchContainer;
 </script>
 

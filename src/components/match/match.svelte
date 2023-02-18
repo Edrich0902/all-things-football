@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import { Badge } from "flowbite-svelte";
-	import { getPrettyDate } from "../utils/dateFormatter";
-    import { MatchStatus, type Match } from "../types/types";
+	import { getPrettyDate } from "../../utils/dateFormatter";
+    import { MatchStatus, type Match } from "../../types/types";
     export let prop: Match;
 
     const formatStatus = (match: Match): string => {

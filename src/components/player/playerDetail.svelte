@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Badge, Img, P, Span, Spinner, Tooltip } from 'flowbite-svelte';
-	import { loadingState } from '../stores/globalLoadingState';
+	import { loadingState } from '../../stores/globalLoadingState';
 	import type { Player } from 'src/types/types';
-	import { flagString } from '../utils/flagHelper';
+	import { flagString } from '../../utils/flagHelper';
 
 	export let player: Player;
 	let containerClass: string = `

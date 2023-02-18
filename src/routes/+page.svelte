@@ -1,8 +1,8 @@
 <script lang='ts'>
 	import { MatchStatus } from '../types/types';
 	import { filterMatchByStatus } from '../utils/matchFilter';
-    import MatchContainer from '../components/matchContainer.svelte';
-    import { matches } from '../stores/matchesStore';
+    import MatchContainer from '../components/match/matchContainer.svelte';
+    import { matches } from '../stores/match/matchesStore';
 	import { loadingState } from '../stores/globalLoadingState';
 	import { Spinner } from 'flowbite-svelte';
 </script>

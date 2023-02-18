@@ -6,13 +6,13 @@
 		getCompetitionStandings,
 		competitionScorers,
 		getCompetitionScorers
-	} from '../../../stores/singleCompetitionStore';
+	} from '../../../stores/competition/singleCompetitionStore';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { Spinner } from 'flowbite-svelte';
-	import CompetitionDetail from '../../../components/competitionDetail.svelte';
-	import CompetitionStandings from '../../../components/competitionStandings.svelte';
-	import CompetitionTopScorers from '../../../components/competitionTopScorers.svelte';
+	import CompetitionDetail from '../../../components/competition/competitionDetail.svelte';
+	import CompetitionStandings from '../../../components/competition/competitionStandings.svelte';
+	import CompetitionTopScorers from '../../../components/competition/competitionTopScorers.svelte';
 	import { loadingState } from '../../../stores/globalLoadingState';
 	onMount(async () => {
 		competition.set(await getCompetition($page.params.slug));

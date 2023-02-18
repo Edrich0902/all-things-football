@@ -8,8 +8,8 @@
 		TableHead,
 		TableHeadCell
 	} from 'flowbite-svelte';
-	import { loadingState } from '../stores/globalLoadingState';
-	import { CompetitionType, type CompetitionScorers, type CompetitionStandings } from '../types/types';
+	import { loadingState } from '../../stores/globalLoadingState';
+	import { CompetitionType, type CompetitionScorers, type CompetitionStandings } from '../../types/types';
 
 	//Props
 	export let data: CompetitionStandings;
